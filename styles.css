@@ -1,0 +1,9 @@
+h1 {
+color: rgb(246, 133, 4);
+}
+
+.checked{
+    text-decoration: line-through;
+    color:rgb(94, 184, 4);
+    /* background-color: aqua; */
+}
