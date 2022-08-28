@@ -5,5 +5,51 @@ color: rgb(246, 133, 4);
 .checked{
     text-decoration: line-through;
     color:rgb(94, 184, 4);
-    /* background-color: aqua; */
+    opacity: 0.5;
+}
+.todo-item {
+    align-items: center;
+    display: flex;
+}
+
+.descreption {
+    /* background-color: antiquewhite; */
+  
+    display: flex;
+    align-items: center;
+
+}
+
+.buton {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.todo-item {
+    background-color: antiquewhite;
+    padding: 8px;
+    /* margin-left: 10%; */
+    margin-bottom: 3px;
+    width: 50%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item.delition {
+    animation: opacity 1s ease-in-out;
+
+}
+
+
+@keyframes opacity {
+    from{
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
