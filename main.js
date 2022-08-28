@@ -22,21 +22,30 @@ const createTamplate = (task, index) => {
         <input onclick="completeTask(${index})" type="checkbox" class="btn-complete" ${
     task.completed ? 'checked' : ''
   }>
-        <button class="btn-deleten">Delete</button>
+        <button onclick="deleteTask(${index})" class="btn-deleten">Delete</button>
       </div>
     </div>`;
+};
+
+const filterTasks = () => {
+  const activeTasks =
+    tasks.length && tasks.filter((item) => item.completed === false);
+  const completedTasks =
+    tasks.length && tasks.filter((item) => item.completed === true);
+  tasks = [...activeTasks, ...completedTasks];
 };
 
 const fillHtmlList = () => {
   //   console.log('befor', todosWrapper);
   todosWrapper.innerHTML = '';
   if (tasks.length > 0) {
+    filterTasks();
     tasks.forEach((item, index) => {
       todosWrapper.innerHTML += createTamplate(item, index);
     });
     todoItemElements = document.querySelectorAll('.todo-item');
   }
-  //   console.log('after', todosWrapper);
+  console.log('after', todosWrapper);
 };
 
 fillHtmlList();
@@ -64,3 +73,12 @@ addTaskBtn.addEventListener('click', () => {
   //   console.log(tasks);
   deskTaskInput.value = '';
 });
+
+const deleteTask = (index) => {
+  setTimeout(() => {
+    console.log(index);
+    tasks.splice(index, 1);
+    updateLocal();
+    fillHtmlList();
+  }, 500);
+};
