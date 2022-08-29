@@ -22,7 +22,7 @@ const createTamplate = (task, index) => {
         <input onclick="completeTask(${index})" type="checkbox" class="btn-complete" ${
     task.completed ? 'checked' : ''
   }>
-        <button onclick="deleteTask(${index})" class="btn-deleten">Delete</button>
+        <button onclick="deleteTask(${index})" class="btn-deleten">Видалити</button>
       </div>
     </div>`;
 };
@@ -45,7 +45,7 @@ const fillHtmlList = () => {
     });
     todoItemElements = document.querySelectorAll('.todo-item');
   }
-  console.log('after', todosWrapper);
+  //   console.log('after', todosWrapper);
 };
 
 fillHtmlList();
@@ -57,26 +57,41 @@ const updateLocal = () => {
 const completeTask = (index) => {
   tasks[index].completed = !tasks[index].completed;
   if (tasks[index].completed) {
-    console.log(todoItemElements[index]);
+    // console.log(todoItemElements[index]);
     todoItemElements[index].classList.add('checked');
   } else {
-    todoItemElements[index].classList.remove('cheked');
+    todoItemElements[index].classList.remove('checked');
   }
   updateLocal();
   fillHtmlList();
 };
 
+const addTasckHandler = () => {
+  if (deskTaskInput.value) {
+    tasks.unshift(new Task(deskTaskInput.value));
+    updateLocal();
+    fillHtmlList();
+    //   console.log(tasks);
+    deskTaskInput.value = '';
+  } else {
+    alert('Введіть нотатку!');
+  }
+};
+
 addTaskBtn.addEventListener('click', () => {
-  tasks.push(new Task(deskTaskInput.value));
-  updateLocal();
-  fillHtmlList();
-  //   console.log(tasks);
-  deskTaskInput.value = '';
+  addTasckHandler();
+});
+
+deskTaskInput.addEventListener('keypress', (event) => {
+  //   console.log(event);
+  if (event.key === 'Enter') {
+    addTasckHandler();
+  }
 });
 
 const deleteTask = (index) => {
   setTimeout(() => {
-    console.log(index);
+    // console.log(index);
     tasks.splice(index, 1);
     updateLocal();
     fillHtmlList();
