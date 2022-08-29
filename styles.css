@@ -1,22 +1,79 @@
-h1 {
-color: rgb(246, 133, 4);
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(189, 230, 246);
 }
 
-.checked{
-    text-decoration: line-through;
-    color:rgb(94, 184, 4);
-    opacity: 0.5;
+.ttl {
+    border-radius: 5px;
+    display: flex;
+    justify-content:center;
+    margin: 20px 50px;
+    padding: 20px 100px;
 }
+
+h1 {
+color: rgb(252, 145, 23);
+background-color: aliceblue;
+}
+
+.ttl2{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+h2{
+width: 40%;
+display: flex;
+justify-content: center;
+align-items: center;
+color: rgb(255, 255, 255);
+background-color: rgba(252, 145, 23, 0.853);;
+border: 2px;
+border-radius: 5px;
+padding: 15px 8px;
+}
+
+.add-todo-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.input-wrapper{
+    width: 30%;
+}
+#description-task{
+    width:100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.button-wrapper{
+height: 30px;
+}
+
+#add-task-btn{
+    margin-left: 9px;
+    padding: 3px;
+    background-color: rgb(55, 245, 99);
+    height: 100%;
+    width: 80px;
+    border-radius:5px;
+    };
+
+
 .todo-item {
     align-items: center;
     display: flex;
 }
 
-.descreption {
-    /* background-color: antiquewhite; */
-  
+.descreption {  
     display: flex;
     align-items: center;
+    padding-left: 20px;
 
 }
 
@@ -28,13 +85,19 @@ color: rgb(246, 133, 4);
 
 }
 
+.todos-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .todo-item {
     background-color: antiquewhite;
     padding: 8px;
     /* margin-left: 10%; */
     margin-bottom: 3px;
-    width: 50%;
-    
+    width: 40%;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -44,6 +107,17 @@ color: rgb(246, 133, 4);
 
 }
 
+.btn-deleten{
+ background-color:tomato;
+ border-radius: 5px;
+}
+
+.checked {
+    background-color: rgb(41, 40, 40);
+    text-decoration: line-through;
+    color: rgb(94, 184, 4);
+    opacity: 0.5;
+}
 
 @keyframes opacity {
     from{
